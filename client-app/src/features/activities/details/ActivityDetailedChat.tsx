@@ -55,5 +55,7 @@ export const ActivityDetailedChat = () => {
         </Comment.Group>
       </Segment>
     </Fragment>
-  )
-}
+  );
+};
+
+export default ActivityDetailedChat;

@@ -55,5 +55,7 @@ export const ActivityDetailedSidebar = () => {
         </List>
       </Segment>
     </Fragment>
-  )
-}
+  );
+};
+
+export default ActivityDetailedSidebar;

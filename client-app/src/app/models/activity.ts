@@ -9,7 +9,7 @@ export interface IActivity {
 };
 
 export interface IActivityFormValues extends Partial<IActivity>{
-    time?: Date
+    time?: Date;
 };
 
 export class ActivityFormValues implements IActivityFormValues {
@@ -24,7 +24,7 @@ export class ActivityFormValues implements IActivityFormValues {
 
     constructor(init?: IActivityFormValues) {
         if (init && init.date) {
-            init.time = init.date
+            init.time = init.date;
         }
         Object.assign(this, init);
     };

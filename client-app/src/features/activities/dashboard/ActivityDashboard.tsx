@@ -14,7 +14,7 @@ export const ActivityDashboard : React.FC = () => {
     loadActivities();
   }, [loadActivities]);
 
-  if (loadingInitial) return <LoadingComponent content='Loading activities' />
+  if (loadingInitial) return <LoadingComponent content='Loading activities' />;
 
   return (
     <Grid>

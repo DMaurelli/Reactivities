@@ -50,7 +50,7 @@ namespace Application.Activities
 
                 if(activity == null)
                 {
-                    throw new RestException(HttpStatusCode.NotFound, new {activity = "Not found"});
+                    throw new RestException(HttpStatusCode.NotFound, new {Activity = "Not found"});
                 }
 
                 activity.Title = request.Title ?? activity.Title;

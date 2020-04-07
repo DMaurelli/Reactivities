@@ -1,15 +1,15 @@
-import React, {useState, useContext, useEffect} from 'react'
-import { Segment, Form, Button, Grid } from 'semantic-ui-react'
+import React, { useState, useContext, useEffect } from 'react';
+import { Segment, Form, Button, Grid } from 'semantic-ui-react';
 import { ActivityFormValues } from '../../../app/models/activity';
 import { v4 as uuid } from 'uuid';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router-dom';
-import { Form as FinalForm, Field} from 'react-final-form';
-import TextInput from '../../../app/common/from/TextInput';
-import TextAreaInput from '../../../app/common/from/TextAreaInput';
+import { Form as FinalForm, Field } from 'react-final-form';
+import TextInput from '../../../app/common/form/TextInput';
+import TextAreaInput from '../../../app/common/form/TextAreaInput';
 import { category } from '../../../app/common/options/categoryOptions';
-import { SelectInput } from '../../../app/common/from/SelectInput';
-import DateInput from '../../../app/common/from/DateInput';
+import { SelectInput } from '../../../app/common/form/SelectInput';
+import DateInput from '../../../app/common/form/DateInput';
 import { combineDateAndTime } from '../../../app/common/util/util';
 import { combineValidators, isRequired, composeValidators, hasLengthGreaterThan } from 'revalidate';
 import { RootStoreContext } from '../../../app/stores/rootStore';
@@ -42,9 +42,11 @@ export const ActivityForm : React.FC<RouteComponentProps<DetailParams>> = ({matc
   useEffect(() => {
     if (match.params.id) {
       setLoading(true);
-      loadActivity(match.params.id).then(
-        (activity) => setActivity(new ActivityFormValues(activity))
-      ).finally(() => setLoading(false));
+      loadActivity(match.params.id)
+        .then(activity => {
+          setActivity(new ActivityFormValues(activity));
+        })
+        .finally(() => setLoading(false));
     }
   }, [loadActivity, match.params.id]);
 

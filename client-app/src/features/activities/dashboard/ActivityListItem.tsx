@@ -1,6 +1,6 @@
-import React from 'react'
-import { Item, Button, Segment, Icon, Label } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Item, Button, Segment, Icon, Label } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { IActivity } from '../../../app/models/activity';
 import { format } from 'date-fns';
 import ActivityListItemAttendees from './ActivityListItemAttendees';
@@ -35,7 +35,7 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }
         <Icon name='marker' /> {activity.venue}, {activity.city}
       </Segment>
       <Segment secondary>
-        <ActivityListItemAttendees attendees={activity.attendees}/>
+        <ActivityListItemAttendees attendees={activity.attendees} />
       </Segment>
       <Segment clearing>
         <span>{activity.description}</span>

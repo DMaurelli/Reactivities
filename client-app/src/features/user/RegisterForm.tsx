@@ -54,7 +54,7 @@ export const RegisterForm = () => {
           <Field
             name='displayName'
             component={TextInput}
-            placeholder='DisplayName'
+            placeholder='Display Name'
           />
           <Field
             name='password'

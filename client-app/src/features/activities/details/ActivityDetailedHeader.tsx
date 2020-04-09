@@ -19,7 +19,7 @@ const activityImageTextStyle = {
   color: 'white'
 };
 
-export const ActivityDetailedHeader: React.FC<{activity: IActivity}> = ({activity}) => {
+export const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({activity}) => {
   const rootStore = useContext(RootStoreContext);
   const {attendActivity, cancelAttendance, loading} = rootStore.activityStore;
   const host = activity.attendees.filter(x => x.isHost)[0];

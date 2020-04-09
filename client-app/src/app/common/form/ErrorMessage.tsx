@@ -3,8 +3,8 @@ import { AxiosResponse } from 'axios';
 import { Message } from 'semantic-ui-react';
 
 interface IProps {
-  error: AxiosResponse,
-  text?: string
+  error: AxiosResponse;
+  text?: string;
 }
 
 export const ErrorMessage: React.FC<IProps> = ({error, text}) => {

@@ -8,7 +8,7 @@ interface IProps {
   attendees: IAttendee[];
 }
 
-export const ActivityDetailedSidebar: React.FC<IProps> = ({attendees}) => {
+export const ActivityDetailedSidebar: React.FC<IProps> = ({ attendees }) => {
   return (
     <Fragment>
       <Segment
@@ -23,7 +23,7 @@ export const ActivityDetailedSidebar: React.FC<IProps> = ({attendees}) => {
       </Segment>
       <Segment attached>
         <List relaxed divided>
-          {attendees.map((attendee) => (
+          {attendees.map(attendee => (
             <Item key={attendee.username} style={{ position: 'relative' }}>
               {attendee.isHost && (
                 <Label

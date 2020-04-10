@@ -11,7 +11,7 @@ export interface IActivity {
     attendees: IAttendee[];
 };
 
-export interface IActivityFormValues extends Partial<IActivity>{
+export interface IActivityFormValues extends Partial<IActivity> {
     time?: Date;
 };
 

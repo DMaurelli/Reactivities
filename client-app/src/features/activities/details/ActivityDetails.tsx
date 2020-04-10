@@ -13,7 +13,7 @@ interface DetailParams {
   id: string
 }
 
-export const ActivityDetail : React.FC<RouteComponentProps<DetailParams>> = ({
+export const ActivityDetails : React.FC<RouteComponentProps<DetailParams>> = ({
   match
 }) => {
   
@@ -46,4 +46,4 @@ export const ActivityDetail : React.FC<RouteComponentProps<DetailParams>> = ({
   );
 };
 
-export default observer(ActivityDetail);
+export default observer(ActivityDetails);

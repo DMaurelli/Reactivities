@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from 'react'
+import React, { useContext, Fragment } from 'react';
 import { Container, Segment, Header, Button, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { RootStoreContext } from '../../app/stores/rootStore';
@@ -11,7 +11,7 @@ export const HomePage = () => {
   const {openModal} = rootStore.modalStore;
 
   return (
-    <Segment inverted textAlign='center' vertical className='masthead' >
+    <Segment inverted textAlign='center' vertical className='masthead'>
       <Container text>
         <Header as='h1' inverted>
           <Image size='massive' src='/assets/logo.png' alt='logo' style={{ marginBottom: 12 }}/>

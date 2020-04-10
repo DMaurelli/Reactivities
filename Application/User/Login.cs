@@ -55,7 +55,6 @@ namespace Application.User
 
         if (result.Succeeded)
         {
-          //TODO: generate token
           return new User
           {
             DisplayName = user.DisplayName,

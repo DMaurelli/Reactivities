@@ -19,15 +19,15 @@ const activityImageTextStyle = {
   color: 'white'
 };
 
-export const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({activity}) => {
+export const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({ activity }) => {
   const rootStore = useContext(RootStoreContext);
-  const {attendActivity, cancelAttendance, loading} = rootStore.activityStore;
+  const { attendActivity, cancelAttendance, loading } = rootStore.activityStore;
   const host = activity.attendees.filter(x => x.isHost)[0];
 
   return (
     <Segment.Group>
       <Segment basic attached='top' style={{ padding: '0' }}>
-        <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle}/>
+        <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
         <Segment basic style={activityImageTextStyle}>
           <Item.Group>
             <Item>
@@ -39,7 +39,7 @@ export const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({activ
                 />
                 <p>{format(activity.date, 'eeee do MMMM')}</p>
                 <p>
-                  Hosted by <strong>{host.displayName}</strong>
+                  Hosted by <Link to={`/profile/${host.username}`}><strong>{host.displayName}</strong></Link>
                 </p>
               </Item.Content>
             </Item>
@@ -54,8 +54,8 @@ export const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({activ
         ) : activity.isGoing ? (
           <Button loading={loading} onClick={cancelAttendance}>Cancel attendance</Button>
         ) : (
-          <Button loading={loading} onClick={attendActivity} color='teal'>Join Activity</Button>
-        )}
+              <Button loading={loading} onClick={attendActivity} color='teal'>Join Activity</Button>
+            )}
       </Segment>
     </Segment.Group>
   );

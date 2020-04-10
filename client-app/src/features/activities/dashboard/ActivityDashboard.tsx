@@ -5,16 +5,17 @@ import { observer } from 'mobx-react-lite';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { RootStoreContext } from '../../../app/stores/rootStore';
 
-export const ActivityDashboard : React.FC = () => {
+export const ActivityDashboard: React.FC = () => {
 
   const rootStore = useContext(RootStoreContext);
   const {loadActivities, loadingInitial} = rootStore.activityStore;
-  
+
   useEffect(() => {
     loadActivities();
   }, [loadActivities]);
 
-  if (loadingInitial) return <LoadingComponent content='Loading activities' />;
+  if (loadingInitial)
+    return <LoadingComponent content='Loading activities' />;
 
   return (
     <Grid>

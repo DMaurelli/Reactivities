@@ -18,7 +18,7 @@ namespace API.Middleware
       _logger = logger;
     }
 
-    public async Task Invoke(HttpContext context) 
+    public async Task Invoke(HttpContext context)
     {
       try
       {
@@ -45,7 +45,7 @@ namespace API.Middleware
           logger.LogError(ex, "SERVER ERROR");
           errors = string.IsNullOrWhiteSpace(e.Message) ? "Error" : e.Message;
           context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-          break;  
+          break;
       }
 
       context.Response.ContentType = "application/json";

@@ -39,7 +39,7 @@ export default class UserStore {
     } catch (error) {
       throw error;
     }
-  }
+  };
 
   @action getUser = async () => {
     try {

@@ -12,18 +12,21 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }
       <Segment>
         <Item.Group>
           <Item>
-            <Item.Image size='tiny' circular src={host.image || '/assets/user.png'} />
+            <Item.Image size='tiny' circular src={host.image || '/assets/user.png'} style={{ marginBottom: 3 }} />
             <Item.Content>
               <Item.Header as={Link} to={`/activities/${activity.id}`}>{activity.title}</Item.Header>
-              <Item.Description>Hosted by {host.displayName}</Item.Description>
+              <Item.Description>
+                Hosted by
+                <Link to={`/profile/${host.username}`}> {host.displayName}</Link>
+              </Item.Description>
               {activity.isHost && (
                 <Item.Description>
-                  <Label basic color='orange' content='You are hosting this activity'/>
+                  <Label basic color='orange' content='You are hosting this activity' />
                 </Item.Description>
               )}
               {activity.isGoing && !activity.isHost && (
                 <Item.Description>
-                  <Label basic color='green' content='You are going to this activity'/>
+                  <Label basic color='green' content='You are going to this activity' />
                 </Item.Description>
               )}
             </Item.Content>
@@ -39,7 +42,7 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }
       </Segment>
       <Segment clearing>
         <span>{activity.description}</span>
-        <Button 
+        <Button
           as={Link} to={`/activities/${activity.id}`}
           floated='right'
           content='View'

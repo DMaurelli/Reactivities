@@ -22,10 +22,10 @@ const ProfilePhotos = () => {
           <Header floated='left' icon='image' content='Photos' />
           {isCurrentUser && (
             <Button
+              onClick={() => setAddPhotoMode(!addPhotoMode)}
               floated='right'
               basic
               content={addPhotoMode ? 'Cancel' : 'Add Photo'}
-              onClick={() => setAddPhotoMode(!addPhotoMode)}
             />
           )}
         </Grid.Column>
@@ -40,11 +40,11 @@ const ProfilePhotos = () => {
                     {isCurrentUser && (
                       <Button.Group fluid widths={2}>
                         <Button
-                          name={photo.id}
                           onClick={(e) => {
                             setMainPhoto(photo);
                             setTarget(e.currentTarget.name);
                           }}
+                          name={photo.id}
                           disabled={photo.isMain}
                           loading={loading && target === photo.id}
                           basic

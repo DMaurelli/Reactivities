@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from 'react'
-import { Grid } from 'semantic-ui-react'
+import React, { useContext, useEffect } from 'react';
+import { Grid } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import ActivityDetailedHeader from './ActivityDetailedHeader';
 import { ActivityDetailedInfo } from './ActivityDetailedInfo';
-import { ActivityDetailedChat } from './ActivityDetailedChat';
+import ActivityDetailedChat from './ActivityDetailedChat';
 import { ActivityDetailedSidebar } from './ActivityDetailedSidebar';
 import { RootStoreContext } from '../../../app/stores/rootStore';
 
 interface DetailParams {
-  id: string
+  id: string;
 }
 
 export const ActivityDetails : React.FC<RouteComponentProps<DetailParams>> = ({
@@ -25,7 +25,7 @@ export const ActivityDetails : React.FC<RouteComponentProps<DetailParams>> = ({
   }, [loadActivity, match.params.id])
 
   if (loadingInitial) {
-    return <LoadingComponent content='Loading activity...'/>
+    return <LoadingComponent content='Loading activity...' />
   };
 
   if (!activity) {
@@ -35,12 +35,12 @@ export const ActivityDetails : React.FC<RouteComponentProps<DetailParams>> = ({
   return (
     <Grid>
       <Grid.Column width={10}>
-        <ActivityDetailedHeader activity={activity}/>
-        <ActivityDetailedInfo activity={activity}/>
-        <ActivityDetailedChat/>
+        <ActivityDetailedHeader activity={activity} />
+        <ActivityDetailedInfo activity={activity} />
+        <ActivityDetailedChat />
       </Grid.Column>
       <Grid.Column width={6}>
-        <ActivityDetailedSidebar attendees={activity.attendees}/>
+        <ActivityDetailedSidebar attendees={activity.attendees} />
       </Grid.Column>
     </Grid>
   );

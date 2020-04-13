@@ -17,7 +17,7 @@ namespace API.SignalR
 
     public async Task SendComment(Create.Command command)
     {
-      var username = GetUserName();
+      var username = Context.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
 
       command.Username = username;
 
@@ -26,27 +26,14 @@ namespace API.SignalR
       await Clients.Group(command.ActivityId.ToString()).SendAsync("ReceiveComment", comment);
     }
 
-    private string GetUserName()
-    {
-      return Context.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
-    }
-
     public async Task AddToGroup(string groupName)
     {
       await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
-
-      var username = GetUserName();
-
-      await Clients.Group(groupName).SendAsync("Send", $"{username} has joined the group");
     }
 
     public async Task RemoveFromGroup(string groupName)
     {
       await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
-
-      var username = GetUserName();
-
-      await Clients.Group(groupName).SendAsync("Send", $"{username} has left the group");
     }
   }
 }
